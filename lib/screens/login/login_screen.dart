@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:tsfs/endpoint.dart';
+import 'package:tsfs/extensions.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
@@ -65,7 +66,7 @@ class _MyLoginPageState extends State<LoginScreen> {
                         if (value == null || value.isEmpty) {
                           return 'Please enter some text';
                         }
-                        if (!value?.isValidEmail()) {
+                        if (value != null && !value.isValidEmail()) {
                           return 'Please enter valid email';
                         }
                         return null;
