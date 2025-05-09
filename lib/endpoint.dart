@@ -1,7 +1,7 @@
 class Endpoint {
-  static String baseUrl = 'https://tell-me-everything.herokuapp.com';
+  static String baseUrl = 'tell-me-everything.herokuapp.com';
 
-  static String getAuth() {
-    return "$baseUrl/authentication";
+  static Uri getAuth() {
+    return Uri.https(baseUrl, "authentication");
   }
 }

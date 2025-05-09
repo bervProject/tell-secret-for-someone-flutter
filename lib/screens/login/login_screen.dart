@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:tsfs/endpoint.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({Key key}) : super(key: key);
+  LoginScreen({super.key});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -62,10 +62,10 @@ class _MyLoginPageState extends State<LoginScreen> {
                         labelText: 'Email',
                       ),
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value == null || value.isEmpty) {
                           return 'Please enter some text';
                         }
-                        if (!value.isValidEmail()) {
+                        if (!value?.isValidEmail()) {
                           return 'Please enter valid email';
                         }
                         return null;
@@ -79,7 +79,7 @@ class _MyLoginPageState extends State<LoginScreen> {
                         labelText: 'Password',
                       ),
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value == null || value.isEmpty) {
                           return 'Please enter some text';
                         }
                         return null;
@@ -91,7 +91,7 @@ class _MyLoginPageState extends State<LoginScreen> {
                         onPressed: () {
                           // Validate will return true if the form is valid, or false if
                           // the form is invalid.
-                          if (_formKey.currentState.validate()) {
+                          if (_formKey.currentState!.validate()) {
                             // Process data.
                             setState(() {
                               _isLoading = true;
@@ -122,7 +122,7 @@ class _MyLoginPageState extends State<LoginScreen> {
                                 var errorMessage = messageData == null
                                     ? 'Server can\'t be contacted'
                                     : messageData;
-                                _scaffoldKey.currentState.showSnackBar(
+                                ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(errorMessage),
                                   ),
