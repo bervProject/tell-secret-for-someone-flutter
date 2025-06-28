@@ -11,7 +11,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - uses: subosito/flutter-action@v2.20.0
+      - uses: subosito/flutter-action@v2.21.0
         with:
           channel: 'stable'
       - run: flutter pub get
@@ -23,7 +23,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: subosito/flutter-action@v2.20.0
+    - uses: subosito/flutter-action@v2.21.0
       with:
         channel: 'stable'
     - run: flutter pub get
